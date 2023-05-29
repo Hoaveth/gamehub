@@ -7,9 +7,9 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const Header = () => {
   return (
-    <HStack>
+    <HStack justifyContent={"space-between"} padding={"10px"}>
       <Image src={Logo} boxSize={"60px"} />
-      <InputGroup size="sm">
+      <InputGroup size="sm" width={"60%"}>
         <Input placeholder="Search for a game..." />
         <InputRightAddon children={<Icon as={AiOutlineSearch} />} />
       </InputGroup>
