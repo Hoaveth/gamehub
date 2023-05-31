@@ -9,12 +9,8 @@ import {
   Image,
   Divider,
 } from "@chakra-ui/react";
-
-interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-}
+import { Game } from "../../hooks/useGames";
+import { PlatformIconList } from "./PlatformIconList";
 
 interface Props {
   game: Game;
@@ -22,20 +18,13 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card maxW="sm">
+    <Card borderRadius={"10px"} overflow={"hidden"}>
+      <Image src={game.background_image} />
       <CardBody>
-        <Image
-          src={game.background_image}
-          alt="Green double couch with wooden legs"
-          borderRadius="lg"
+        <Heading fontSize={"2xl"}>{game.name}</Heading>
+        <PlatformIconList
+          platforms={game.parent_platforms.map((p) => p.platform)}
         />
-        <Stack mt="6" spacing="3">
-          <Heading size="md">Living room Sofa</Heading>
-          <Text>{game.name}</Text>
-          <Text color="blue.600" fontSize="2xl">
-            $450
-          </Text>
-        </Stack>
       </CardBody>
       <Divider />
     </Card>
