@@ -1,19 +1,18 @@
 import { Flex, HStack, Text, VStack } from "@chakra-ui/react";
-import MenuCard from "./MenuCard";
+import GenreCard from "./GenreCard";
+import useGenres from "../../hooks/useGenres";
 
 const Sidebar = () => {
+  const { genres } = useGenres();
   return (
     <>
       <Text fontSize="2xl" fontWeight={"bold"} margin={"10px 0px"}>
         Genres
       </Text>
       <Flex direction={"column"}>
-        <MenuCard />
-        <MenuCard />
-        <MenuCard />
-        <MenuCard />
-        <MenuCard />
-        <MenuCard />
+        {genres.map((genre) => (
+          <GenreCard key={genre.id} genre={genre} />
+        ))}
       </Flex>
     </>
   );

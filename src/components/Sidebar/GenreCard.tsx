@@ -1,6 +1,11 @@
 import { HStack, Image, Text } from "@chakra-ui/react";
+import { Genre } from "../../hooks/useGenres";
 
-const MenuCard = () => {
+interface Props {
+  genre: Genre;
+}
+
+const GenreCard = ({ genre }: Props) => {
   return (
     <HStack marginBottom={"10px"}>
       <Image
@@ -9,9 +14,9 @@ const MenuCard = () => {
         src="https://bit.ly/dan-abramov"
         alt="Dan Abramov"
       />
-      <Text>Action</Text>
+      <Text>{genre.name}</Text>
     </HStack>
   );
 };
 
-export default MenuCard;
+export default GenreCard;
